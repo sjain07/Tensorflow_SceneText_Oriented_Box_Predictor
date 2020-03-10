@@ -24,17 +24,14 @@ slim = tf.contrib.slim
 flags = tf.app.flags
 
 flags.DEFINE_string('pipeline_config_path', None,
-                    'Path to a pipeline_pb2.TrainEvalPipelineConfig config '
-                    'file.')
+                    'data/faster_rcnn_inception_resnet_v2_atrous_text.config')
 
 flags.DEFINE_string('train_dir', None,
-                    'path/to/')
+                    'train_dir')
 
-flags.DEFINE_string('image_dir', None,
-        '')
+flags.DEFINE_string('image_dir', 'image_dir', 'image_dir')
 
-flags.DEFINE_string('output_dir', None,
-        '')
+flags.DEFINE_string('output_dir', 'output_dir', 'output_dir')
 
 FLAGS = flags.FLAGS
 
@@ -152,7 +149,7 @@ def main(_):
                 fout.write(',')
             fout.write('\n')
         fout.close()
-        print 'detected ', count, ' boxes'
+        print('detected ', count, ' boxes')
 
 if __name__ == '__main__':
   tf.app.run()
